@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="loginID" />
+    </Key>
+    <Property Name="loginID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblNotification">
+    <Key>
+      <PropertyRef Name="notificationID" />
+    </Key>
+    <Property Name="notificationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="shippingID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="notificationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShipping">
+    <Key>
+      <PropertyRef Name="shippingID" />
+    </Key>
+    <Property Name="shippingID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateDepart" Type="DateTime" Precision="0" />
+    <Property Name="itemCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="itemWeight" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="locationFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="locationTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateArrived" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="CMSEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblLogin" EntityType="Self.tblLogin" />
+    <EntitySet Name="tblNotification" EntityType="Self.tblNotification" />
+    <EntitySet Name="tblShipping" EntityType="Self.tblShipping" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="loginID" />
+    </Key>
+    <Property Name="loginID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userID" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+    <Property Name="role" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="tblNotification">
+    <Key>
+      <PropertyRef Name="notificationID" />
+    </Key>
+    <Property Name="notificationID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="shippingID" Type="varchar" MaxLength="50" />
+    <Property Name="notificationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShipping">
+    <Key>
+      <PropertyRef Name="shippingID" />
+    </Key>
+    <Property Name="shippingID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userID" Type="varchar" MaxLength="50" />
+    <Property Name="dateDepart" Type="date" />
+    <Property Name="itemCategory" Type="varchar" MaxLength="50" />
+    <Property Name="itemWeight" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="locationFrom" Type="varchar" MaxLength="50" />
+    <Property Name="locationTo" Type="varchar" MaxLength="50" />
+    <Property Name="dateArrived" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="CMSModelStoreContainer">
+    <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNotification" EntityType="Self.tblNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShipping" EntityType="Self.tblShipping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

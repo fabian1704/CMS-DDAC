@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CMS.ViewModels.Shipment>
+
+@{
+    ViewBag.Title = "View Shipment";
+}
+
+<div class="container">
+    <h2 style="text-align:left;float:left;">My Shippings</h2>
+    <hr style="clear:both;" />
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Shipping ID")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Date Depart")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Item Category")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Item Weight")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Location From")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Location To")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Date Arrived")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Status")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+               @foreach (var item in Model)
+               {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shippingID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateDepart)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemCategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemWeight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.locationFrom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.locationTo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateArrived)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                </tr>
+               }
+            </tbody>
+        </table>
+    </div>
+</div>

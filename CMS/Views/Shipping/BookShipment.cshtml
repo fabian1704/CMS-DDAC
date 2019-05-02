@@ -1,0 +1,62 @@
+﻿@model CMS.ViewModels.Shipment
+
+@{
+    ViewBag.Title = "Book Shipment";
+}
+<style>
+    .red {
+        color: red;
+    }
+
+    .form-area {
+        background-color: #FAFAFA;
+        padding: 10px 40px 60px;
+        margin: 10px 0px 60px;
+        border: 1px solid GREY;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css"/>
+
+<div class="container">
+    <div class="col-md-5">
+        <div class="form-area">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <br style="clear:both">
+                <h3 style="margin-bottom: 25px; text-align: center;">Shipment Booking</h3>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.dateDepart, null, new { @class = "form-control", id="datePicker", placeholder="Departure Date" })
+                    @Html.ValidationMessageFor(model => model.dateDepart, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.itemCategory, new { placeholder = "Item Category", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.itemCategory, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.itemWeight, new { placeholder = "Item Weight", @class = "form-control", type = "number" })
+                    @Html.ValidationMessageFor(model => model.itemWeight, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.locationFrom, new { placeholder = "Location From", @class = "form-control", type = "text" })
+                    @Html.ValidationMessageFor(model => model.locationFrom, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.locationTo, new { placeholder = "Location To", @class = "form-control", type = "text" })
+                    @Html.ValidationMessageFor(model => model.locationTo, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $("#datePicker").datepicker();
+    </script>
+}

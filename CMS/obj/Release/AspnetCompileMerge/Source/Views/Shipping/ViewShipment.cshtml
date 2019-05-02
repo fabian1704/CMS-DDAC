@@ -1,0 +1,98 @@
+﻿@model IEnumerable<CMS.ViewModels.Shipment>
+
+@{
+    ViewBag.Title = "ViewShipment";
+}
+
+<h2 style="text-align:left;float:left;">View Shipment</h2>
+
+<p style="text-align:right;float:right;">
+    @Html.ActionLink("Request Shipment", "BookShipment", "Shipping")
+</p>
+<hr style="clear:both;" />
+<style>
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    tr td {
+        width: 15%;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayName("Shipping ID")
+        </th>
+        <th>
+            @Html.DisplayName("Date Depart")
+        </th>
+        <th>
+            @Html.DisplayName("Item Category")
+        </th>
+        <th>
+            @Html.DisplayName("Item Weight")
+        </th>
+        <th>
+            @Html.DisplayName("Location From")
+        </th>
+        <th>
+            @Html.DisplayName("Location To")
+        </th>
+        <th>
+            @Html.DisplayName("Date Arrived")
+        </th>
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.shippingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateDepart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.locationFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.locationTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateArrived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+    </tr>
+}
+
+</table>

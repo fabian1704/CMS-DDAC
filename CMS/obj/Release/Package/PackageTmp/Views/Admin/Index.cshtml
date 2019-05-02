@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CMS.Models.tblShipping>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h1>Admin Page</h1>
+@*<button onclick="location.href='@Url.Action("ShipmentPending", "Admin")'">Click here to View Pending Shipment</button>*@
+@*<p>@Html.ActionLink("Click here to View Pending Shipment", "ShipmentPending", "Admin")</p>*@
+<h2 style="text-align:left;float:left;">List of Approved Shipment</h2>
+<h4 style="text-align:right;float:right;">@Html.ActionLink("Click here to View Pending Shipment", "ShipmentPending", "Admin")</h4>
+<hr style="clear:both;" />
+<style>
+    table{
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    tr td{
+        width:15%;
+    }
+    tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    tr:hover{
+        background-color: #ddd;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayName("Shipping ID")
+        </th>
+        <th>
+            @Html.DisplayName("User ID")
+        </th>
+        <th>
+            @Html.DisplayName("Date Depart")
+        </th>
+        <th>
+            @Html.DisplayName("Item Category")
+        </th>
+        <th>
+            @Html.DisplayName("Item Weight")
+        </th>
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+        <th>
+            @Html.DisplayName("Update to Shipping")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.shippingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateDepart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @if (item.status == "Approved") { 
+                @Html.ActionLink("Update", "ChangeStatus", new { id=item.shippingID })
+            }
+        </td>
+    </tr>
+}
+
+</table>

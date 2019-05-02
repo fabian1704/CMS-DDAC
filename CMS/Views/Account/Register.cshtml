@@ -1,0 +1,77 @@
+﻿@model CMS.ViewModels.UserRegistration
+@{
+    ViewBag.Title = "Create a new account";
+}
+<style>
+    .centered-form {
+        margin-top: 60px;
+    }
+
+        .centered-form .panel {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+        }
+</style>
+
+<div class="container">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Sign up for an account <small>It's free!</small></h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.username, new { @class = "form-control input-sm", placeholder = "Username" })
+                                    @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.name, new { @class = "form-control input-sm", placeholder = "Name" })
+                                    @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.email, new { @class = "form-control input-sm", placeholder = "Email Address", type = "email" })
+                                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.phone, new { @class = "form-control input-sm", placeholder = "Phone number", type = "number" })
+                                    @Html.ValidationMessageFor(m => m.phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.password, new { @class = "form-control input-sm", placeholder = "Password", type = "password" })
+                                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.address, new { @class = "form-control input-sm", placeholder = "Address", type = "text" })
+                                    @Html.ValidationMessageFor(m => m.address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Register" class="btn btn-info btn-block">
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model CMS.ViewModels.Shipment
+
+@{
+    ViewBag.Title = "BookShipment";
+}
+
+<h2> Shipment Booking</h2>
+<br />
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>tblShipping</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dateDepart)
+        </div>
+            @Html.TextBoxFor(model => model.dateDepart, null, new { @type = "date" })
+            @Html.ValidationMessageFor(model => model.dateDepart)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.itemCategory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.itemCategory)
+            @Html.ValidationMessageFor(model => model.itemCategory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.itemWeight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.itemWeight)
+            @Html.ValidationMessageFor(model => model.itemWeight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.locationFrom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.locationFrom)
+            @Html.ValidationMessageFor(model => model.locationFrom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.locationTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.locationTo)
+            @Html.ValidationMessageFor(model => model.locationTo)
+        </div>
+
+        <p>
+            <input type="submit" value="Book Shipment" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

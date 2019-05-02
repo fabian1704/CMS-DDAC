@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CMS.ViewModels.NotifyShipmentVM>
+
+@{
+    ViewBag.Title = "Notifications";
+}
+
+<div class="container">
+    <h2 style="text-align:left;float:left;">Shipment Listing</h2>
+    <hr style="clear:both;" />
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Shipping ID")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Notification Date")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Date Depart")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Item Category")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Weight")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Location From")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Status")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Update Status")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.shippingID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.notificationDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dateDepart)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.itemCategory)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.itemWeight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.locationFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td>
+                            @if (item.status == "Shipping")
+                            {
+                                @Html.ActionLink("Arrived", "UpdateArrival", new { id = item.shippingID })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

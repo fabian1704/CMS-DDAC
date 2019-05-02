@@ -1,0 +1,70 @@
+﻿@model CMS.ViewModels.UserRegistration
+@{
+    ViewBag.Title = "Create a new account";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.username)
+                @Html.TextBoxFor(m => m.username)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.password)
+                @Html.PasswordFor(m => m.password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.name)
+                @Html.TextBoxFor(m => m.name)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.address)
+                @Html.TextBoxFor(m => m.address)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.email)
+                @Html.TextBoxFor(m => m.email)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.phone)
+                @Html.TextBoxFor(m => m.phone)
+            </li>
+        </ol>
+        <input type="submit" value="Register" id="registerBtn"/>
+    </fieldset>
+}
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#registerBtn').click(function () {
+                var f = {};
+                f.url = '@Url.Action("TestFunction", "Account")';
+                f.type = "POST";
+                f.dataType = "json";
+                f.contentType = "application/json";
+                f.success = function (response) {
+                    alert("SUCCESS");
+                    window.localtion.href = response.Url;
+                };
+                f.error = function () {
+                    alert("FAILED");
+                };
+                $.ajax(f);
+
+                $
+            });
+        })
+    </script>
+
+}*@
