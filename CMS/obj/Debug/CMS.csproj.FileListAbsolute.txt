@@ -250,6 +250,5 @@ C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\bin\ko\Sys
 C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\bin\ru\System.Spatial.resources.dll
 C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\obj\Debug\CMS.csprojResolveAssemblyReference.cache
 C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\obj\Debug\CMS.dll
 C:\Users\ching-huat.ong\Documents\Visual Studio 2015\Projects\CMS\CMS\obj\Debug\CMS.pdb
